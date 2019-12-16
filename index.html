@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/style.css">
     <script src="https://kit.fontawesome.com/f674c96901.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>Weather Dashboard</title>
@@ -20,31 +21,48 @@
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" id="searchInput">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i></button>
+                        <button class="btn btn-outline-secondary" type="button" id="searchButton"><i class="fas fa-search"></i></button>
                     </div>
                 </div>
-                <ul class="list-group">
+                <ul class="list-group" id="pastSearches">
+                    <!-- past searchest items
                     <li class="list-group-item">thing 1</li>
                     <li class="list-group-item">thing 2</li>
-                    <li class="list-group-item">thing 3</li>
+                    <li class="list-group-item">thing 3</li>-->
                 </ul>
             </div>
             <div class="col-md-8 bg-info">
                 <div class="row bg-warning mb-3">
-                    <div class="container">
-                        <h2>Current Weather</h2>
-                        <div>
+                    <div class="container" id="currentWeatherContain">
+                        
+                        <div id="currentWeatherInfo">
+                            <h2>Current Weather</h2>
+                            <!-- weather stats
                             <p>Content</p>
+                            <p>Content</p>
+                            <p>Content</p>-->
                         </div>
                     </div>
                 </div>
-                <div class="row bg-warning mb-3">
-                    <div class="container">
-                        <h2>5-Day Forecast</h2>
-                        <div>
+                <div class="row bg-warning mb-3 pb-3" id="forecastInfo">
+                        <h2 class="col-md-12">5-Day Forecast</h2>
+                        <!-- What the forecast pills will look like
+
+                        <div class="col-md-2 rounded bg-primary mx-2">
                             <p>Content</p>
                         </div>
-                    </div>
+                        <div class="col-md-2 rounded bg-primary mx-2">
+                            <p>Content</p>
+                        </div>
+                        <div class="col-md-2 rounded bg-primary mx-2">
+                            <p>Content</p>
+                        </div>
+                        <div class="col-md-2 rounded bg-primary mx-2">
+                            <p>Content</p>
+                        </div>
+                        <div class="col-md-2 rounded bg-primary mx-2">
+                            <p>Content</p>
+                        </div>  -->
                 </div>
             </div>
         </div>
@@ -54,5 +72,5 @@
     </div>  
 
 
-
+<script src="myScript.js"></script>
   </body>
