@@ -1,3 +1,4 @@
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -15,7 +16,7 @@
             <h1>Weather Dashboard</h1>
         </div>
         <div class="row">
-            <div class="col-md-4 bg-secondary">
+            <div class="col-md-3 bg-secondary">
                 <label for="searchInput">Search for a City:</label>
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" id="searchInput">
@@ -33,46 +34,21 @@
             <div class="col-md-8 bg-info">
                 <div class="row bg-warning mb-3">
                     <div class="container" id="currentWeatherContain">
-                        <h2>Current Weather</h2>
                         <div id="currentWeatherInfo">
                             
-                            <!-- weather stats
-                            <p>Content</p>
-                            <p>Content</p>
-                            <p>Content</p>-->
                         </div>
                     </div>
                 </div>
-                <div class="row bg-warning mb-3 pb-3">
-                        <h2 class="col-md-12">5-Day Forecast</h2>
-                        <div class="container" id="forecastInfo">
-                            <!-- What the forecast pills will look like
-
-                                <div class="col-md-2 rounded bg-primary mx-2">
-                                    <p>Content</p>
-                                </div>
-                                <div class="col-md-2 rounded bg-primary mx-2">
-                                    <p>Content</p>
-                                </div>
-                                <div class="col-md-2 rounded bg-primary mx-2">
-                                    <p>Content</p>
-                                </div>
-                                <div class="col-md-2 rounded bg-primary mx-2">
-                                    <p>Content</p>
-                                </div>
-                                <div class="col-md-2 rounded bg-primary mx-2">
-                                    <p>Content</p>
-                                </div>  -->
-
-                        </div>
+                <div class="row bg-warning mb-3 pb-3" id="forecastInfo">
+                       
                 </div>
             </div>
         </div>
 
-
+<span style="background-color: red;"></span>
 
     </div>  
 
-
+<script src="https://momentjs.com/downloads/moment.js"></script> 
 <script src="myScript.js"></script>
   </body>
