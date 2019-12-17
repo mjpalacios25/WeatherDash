@@ -1,16 +1,19 @@
 
 var pastSearchesEl = $("#pastSearches");
-var cities = []
+var cities 
 var currentWeatherEl = $("#currentWeatherInfo");
 var forecastEl = $("#forecastInfo");
 
-var currentWeathUrl = "api.openweathermap.org/data/2.5/weather?";
+var currentWeatherUrl = "http://api.openweathermap.org/data/2.5/weather?";
 var uvIndexUrl = "http://api.openweathermap.org/data/2.5/uvi?";
-var forecastUrl = "api.openweathermap.org/data/2.5/forecast?";
+var forecastUrl = "http://api.openweathermap.org/data/2.5/forecast?";
 
-var currentWeatherParam = {"APPID" : "20912c814361943ea6f62b43e249f46f"};
+var currentWeatherParam = {};
 var uvIndexParam = {"APPID" : "20912c814361943ea6f62b43e249f46f"};
 var fiveDayParam = {"APPID" : "20912c814361943ea6f62b43e249f46f"};
+var apiid = "20912c814361943ea6f62b43e249f46f";
+var lat;
+var lon;
 //will create name and coordinate variables within build url function.
 
 $(document).ready(function(){
@@ -18,29 +21,58 @@ $(document).ready(function(){
 function buildCurrentWeatherURL(){
     currentWeatherParam.q = $("#searchInput").val().trim();
     currentWeatherParam.units = "imperial";
+    currentWeatherParam.appid = apiid;
 
     console.log(currentWeatherParam);
-    var currentWeatherCall = currentWeathUrl + $.param(currentWeatherParam);
+    var currentWeatherCall = currentWeatherUrl + $.param(currentWeatherParam);
 
     console.log(currentWeatherCall)
+}
+
+function buildUvURL(){
+    uvIndexParam.lat = lat;
+    uvIndexParam.lon = lon;
+    uvIndexParam.units = "imperial";
+
+    console.log(uvIndexParam);
+    var uvCall = uvIndexUrl + $.param(uvIndexParam);
+
+    console.log(uvCall)
+}
+
+function buildforecastURL(){
+    fiveDayParam.lat = lat;
+    fiveDayParam.lon = lon;
+    fiveDayParam.units = "imperial";
+
+
+    console.log(fiveDayParam);
+    var fiveDayCall = forecastUrl + $.param(fiveDayParam);
+
+    console.log(fiveDayCall)
 }
 
 
 
 //functions to save to past searches
 function saveLocal(){
-    localStorage.setItem("cityNames", JSON.stringify($("#searchInput").val().trim()))
+    //localStorage.setItem("cityNames", JSON.stringify($("#searchInput").val().trim()))
+    localStorage.setItem("cityNames", JSON.stringify(cities))
 }
 
 function getCities(){
     var storedCities = JSON.parse(localStorage.getItem("cityNames"));
 
     if(storedCities !== null){
-        //cities = [];
+        cities = [];
         cities.push($("#searchInput").val().trim())
     } else {
-        cities
-    }
+        cities = []
+        cities = $("#searchInput").val().trim()
+    };
+
+   //addCity();
+
 }
 
 
@@ -51,13 +83,6 @@ function clear(){
 }
 
 //funtion to create list of past searches
-function pastSearches(){
-    for(i = 0; i < cities.length; i++) {
-        var newLi = $("<li class = 'list-group-item'>").text(cities[i]);
-        pastSearchesEl.append(newLi)
-    }
-}
-
 function addCity(){
         var newLi = $("<li class = 'list-group-item'>").text($("#searchInput").val().trim());
         pastSearchesEl.append(newLi)
@@ -65,19 +90,32 @@ function addCity(){
 
 
 //click events and AJAX calls
+getCities();
+
 
 $("#searchButton").on("click", function(){
     //clear goes first.. maybe also prevent default
     //event.preventDefault();
-    clear();
+    //clear();
     saveLocal();
     getCities();
-    addCity();
     console.log(cities);
     console.log(typeof cities)
+    console.log(localStorage.getItem("cityNames"))
 
-    buildCurrentWeatherURL();
-    console.log(currentWeatherParam)
+    var mainWeatherURL = buildCurrentWeatherURL();
+    var uvURL = buildUvURL();
+    var fiveDayURL = buildforecastURL();
+  
+    $.ajax({
+        url: mainWeatherURL,
+        method: "GET"
+        }).then(function(response) {
+        console.log(response)
+
+
+        })
+    
 });
 
 })
