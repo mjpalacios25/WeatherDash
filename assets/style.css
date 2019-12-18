@@ -1,0 +1,30 @@
+body{
+    background-image: url(../assets/hills-889131_1920.jpg);
+    max-height: fit-content;
+    overflow: scroll;
+}
+
+#searchButton{
+    background-color: #ee442d;
+    opacity: .7;
+}
+
+.searchDiv {
+    background-color: #dae6e2;
+}
+
+.pastCities{
+    background-color: #ffffff;
+}
+
+#currentWeatherContain, #forecastInfo {
+    background-color: #ffffff;
+}
+
+#forecastInfo {
+    display: none;
+}
+
+.forecastSquare {
+    background-color: #237277;
+}

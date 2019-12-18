@@ -12,11 +12,11 @@
 
   <body>
     <div class="container">
-        <div class="jumbotron text-center">
+        <div class="jumbotron text-center bg-dark text-white">
             <h1>Weather Dashboard</h1>
         </div>
         <div class="row">
-            <div class="col-md-3 bg-secondary">
+            <div class="col-md-2 mr-5 searchDiv">
                 <label for="searchInput">Search for a City:</label>
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" id="searchInput">
@@ -25,27 +25,22 @@
                     </div>
                 </div>
                 <ul class="list-group" id="pastSearches">
-                    <!-- past searchest items
-                    <li class="list-group-item">thing 1</li>
-                    <li class="list-group-item">thing 2</li>
-                    <li class="list-group-item">thing 3</li>-->
+                   
                 </ul>
             </div>
-            <div class="col-md-8 bg-info">
-                <div class="row bg-warning mb-3">
-                    <div class="container" id="currentWeatherContain">
+            <div class="col-md-9 ml-0">
+                <div class="row mb-3">
+                    <div class="container rounded" id="currentWeatherContain">
                         <div id="currentWeatherInfo">
                             
                         </div>
                     </div>
                 </div>
-                <div class="row bg-warning mb-3 pb-3" id="forecastInfo">
+                <div class="row mb-3 pb-3 rounded" id="forecastInfo">
                        
                 </div>
             </div>
         </div>
-
-<span style="background-color: red;"></span>
 
     </div>  
 
